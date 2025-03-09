@@ -32,5 +32,12 @@ namespace Task0Test
             var calculator = new Task0.Calculator();
             Assert.AreEqual(2, calculator.divide(6, 3));
         }
+
+        [TestMethod]
+        public void modulo_divideTwoNumbers_correctResult()
+        {
+            var calculator = new Task0.Calculator();
+            Assert.AreEqual(2, calculator.modulo(5, 3));
+        }
     }
 }
