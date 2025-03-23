@@ -1,6 +1,6 @@
-﻿namespace Task0
+﻿namespace Calculator.Logic
 {
-    public class Calculator
+    public class CalculatorService
     {
         public double add(double a, double b)
         {
@@ -19,11 +19,11 @@
 
         public double divide(double a, double b)
         {
+            if (b == 0)
+            {
+                throw new System.ArgumentException("Cannot divide by zero.");
+            }
             return a / b;
-        }
-        public int modulo(int a, int b)
-        {
-            return a % b;
         }
     }
 }
