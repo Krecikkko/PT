@@ -21,6 +21,6 @@ namespace Shop.Logic
             var product = _repository.getById(productId);
             if (product == null) throw new ArgumentException("Product not found");
             return product.price * 1.23m; // 23% tax
-        }
+        } 
     }
 }
