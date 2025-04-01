@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Shop.Logic
 {
-    class ShopService
+    public class ShopService
     {
         private readonly IProductRepository _repository;
 
