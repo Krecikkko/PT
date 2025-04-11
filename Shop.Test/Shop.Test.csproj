@@ -13,7 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shop\Shop.csproj" />
+    <ProjectReference Include="..\Shop.Data\Shop.Data.csproj" />
+    <ProjectReference Include="..\Shop.Logic\Shop.Logic.csproj" />
   </ItemGroup>
 
   <ItemGroup>
