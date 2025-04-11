@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shop.Data.API
 {
-    interface IReturn
+    public interface IReturn : IEvent
     {
     }
 }
