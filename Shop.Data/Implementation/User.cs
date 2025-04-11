@@ -21,6 +21,5 @@ namespace Shop.Data.Implementation
             LastName = lastName;
             Address = address;
         }
-
     }
 }

@@ -2,55 +2,57 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("Shop.Test")]
 namespace Shop.Data.Implementation
 {
     internal class DataRepository : IDataRepository
     {
-        private DataContext data;
+        private DataContext _data;
 
         public DataRepository(IDataGenerator? generator)
         {
-            data = new DataContext();
+            _data = new DataContext();
             generator?.Generate(this);
         }
 
         public override void AddCatalog(ICatalog catalog)
         {
-            data.catalog.Add(catalog.Id, catalog);
+            _data.catalog.Add(catalog.Id, catalog);
         }
 
         public override void RemoveCatalog(string id)
         {
-            data.catalog.Remove(id);
+            _data.catalog.Remove(id);
         }
 
         public override ICatalog GetCatalog(string id)
         {
-            return data.catalog[id];
+            return _data.catalog[id];
         }
 
         public override IEnumerable<ICatalog> GetAllCatalogs()
         {
-            return data.catalog.Values;
+            return _data.catalog.Values;
         }
 
         //-------------------------------------
 
         public override void AddUser(IUser user)
         {
-            data.users.Add(user);
+            _data.users.Add(user);
         }
 
         public override void RemoveUser(string id)
         {
-            for (int i = 0; i < data.users.Count; i++)
+            for (int i = 0; i < _data.users.Count; i++)
             {
-                if (data.users[i].Id == id)
+                if (_data.users[i].Id == id)
                 {
-                    data.users.RemoveAt(i);
+                    _data.users.RemoveAt(i);
                     break;
                 }
             }
@@ -58,11 +60,11 @@ namespace Shop.Data.Implementation
 
         public override IUser GetUser(string id)
         {
-            for (int i = 0; i < data.users.Count; i++)
+            for (int i = 0; i < _data.users.Count; i++)
             {
-                if (data.users[i].Id == id)
+                if (_data.users[i].Id == id)
                 {
-                    return data.users[i];
+                    return _data.users[i];
                 }
             }
             throw new Exception("User not found");
@@ -70,14 +72,14 @@ namespace Shop.Data.Implementation
 
         public override IEnumerable<IUser> GetAllUsers()
         {
-            return data.users;
+            return _data.users;
         }
 
         //-------------------------------------
 
         public override void AddState(IState state)
         {
-            data.states.Add(state);
+            _data.states.Add(state);
         }
 
         public override void RemoveState(string id)
@@ -87,11 +89,11 @@ namespace Shop.Data.Implementation
 
         public override IState GetState(string id)
         {
-            for (int i = 0; i < data.states.Count; i++)
+            for (int i = 0; i < _data.states.Count; i++)
             {
-                if (data.states[i].StateId == id)
+                if (_data.states[i].StateId == id)
                 {
-                    return data.states[i];
+                    return _data.states[i];
                 }
             }
             throw new Exception("State not found");
@@ -99,22 +101,22 @@ namespace Shop.Data.Implementation
 
         public override IEnumerable<IState> GetAllStates()
         {
-            return data.states;
+            return _data.states;
         }
 
         //-------------------------------------
 
         public override void AddEvent(IEvent eventItem) {
-            data.events.Add(eventItem);
+            _data.events.Add(eventItem);
         }
 
         public override void RemoveEvent(IEvent eventItem)
         {
-            foreach (var target in data.events)
+            foreach (var target in _data.events)
             {
                 if (eventItem.Equals(target))
                 {
-                    data.events.Remove(eventItem);
+                    _data.events.Remove(eventItem);
                     break;
                 }
             }
@@ -122,7 +124,7 @@ namespace Shop.Data.Implementation
 
         public override IEnumerable<IEvent> GetAllEvents()
         {
-            return data.events;
+            return _data.events;
         }
 
         //-------------------------------------

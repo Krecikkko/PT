@@ -2,18 +2,17 @@
 
 namespace Shop.Logic.Implementation
 {
-    internal class Return : IReturn
+    internal class Supply : ISupply
     {
         public string StateId { get; }
         public string UserId { get; }
         public int QuantityChanged { get; set; }
 
-        public Return(string stateId, string userId, int quantityChanged)
+        public Supply(string stateId, string userId, int quantityChanged)
         {
             StateId = stateId;
             UserId = userId;
             QuantityChanged = quantityChanged;
-
         }
     }
 }

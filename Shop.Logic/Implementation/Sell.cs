@@ -13,7 +13,6 @@ namespace Shop.Logic.Implementation
             StateId = stateId;
             UserId = userId;
             QuantityChanged = quantityChanged;
-
         }
     }
 }
