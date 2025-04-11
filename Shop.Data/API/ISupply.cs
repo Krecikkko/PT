@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shop.Data.API
 {
-    public interface IEvent
+    interface ISupply : IEvent
     {
-        string StateId { get; }
-        string UserId { get; }
-        int QuantityChanged { get; set; }
     }
 }
