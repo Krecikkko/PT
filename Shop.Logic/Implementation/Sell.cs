@@ -4,14 +4,16 @@ namespace Shop.Logic.Implementation
 {
     internal class Sell : ISell
     {
-        public string StateId { get; }
-        public string UserId { get; }
+        private IState _state;
+        private IUser _user;
+        public string StateId => _state.StateId;
+        public string UserId => _user.Id;
         public int QuantityChanged { get; set; }
 
-        public Sell(string stateId, string userId, int quantityChanged)
+        public Sell(IState state, IUser user, int quantityChanged)
         {
-            StateId = stateId;
-            UserId = userId;
+            _state = state;
+            _user = user;
             QuantityChanged = quantityChanged;
         }
     }

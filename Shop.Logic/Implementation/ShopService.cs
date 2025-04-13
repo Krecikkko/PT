@@ -16,7 +16,9 @@ namespace Shop.Logic.Implementation
 
         public override void SupplyItem(string userId, string stateId, int quantity)
         {
-            _repository.AddEvent(new Supply(stateId, userId, quantity));
+            IState state = _repository.GetState(stateId);
+            IUser user = _repository.GetUser(userId);
+            _repository.AddEvent(new Supply(state, user, quantity));
             _repository.ChangeQuantity(stateId, quantity);
         }
 
@@ -26,7 +28,9 @@ namespace Shop.Logic.Implementation
             {
                 throw new Exception("Not enough items on stock");
             }
-            _repository.AddEvent(new Sell(stateId, userId, quantity));
+            IState state = _repository.GetState(stateId);
+            IUser user = _repository.GetUser(userId);
+            _repository.AddEvent(new Sell(state, user, quantity));
             _repository.ChangeQuantity(stateId, -quantity);
         }
 
@@ -37,7 +41,9 @@ namespace Shop.Logic.Implementation
             {
                 if (events[i].UserId == userId && events[i].StateId == stateId)
                 {
-                    _repository.AddEvent(new Return(stateId, userId, quantity));
+                    IState state = _repository.GetState(stateId);
+                    IUser user = _repository.GetUser(userId);
+                    _repository.AddEvent(new Return(state, user, quantity));
                     _repository.ChangeQuantity(stateId, quantity);
                     break;
                 }
