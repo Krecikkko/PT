@@ -54,15 +54,16 @@ namespace Shop.Data.Generators
 
             states.ForEach(dataRepository.AddState);
 
-            dataRepository.AddEvent(new Sell("Q101", "C101", 2));
-            dataRepository.AddEvent(new Sell("Q104", "C102", 1));
-            dataRepository.AddEvent(new Sell("Q105", "C103", 3));
-            dataRepository.AddEvent(new Sell("Q107", "C104", 2));
 
-            dataRepository.AddEvent(new Supply("Q103", "S101", 10));
-            dataRepository.AddEvent(new Supply("Q108", "S102", 4));
+            dataRepository.AddEvent(new Sell(states[0], customers[0], 2));
+            dataRepository.AddEvent(new Sell(states[3], customers[1], 1));
+            dataRepository.AddEvent(new Sell(states[4], customers[2], 3));
+            dataRepository.AddEvent(new Sell(states[6], customers[3], 2));
 
-            dataRepository.AddEvent(new Return("Q105", "C103", 1));
+            dataRepository.AddEvent(new Supply(states[3], suppliers[0], 10));
+            dataRepository.AddEvent(new Supply(states[7], suppliers[1], 4));
+
+            dataRepository.AddEvent(new Return(states[4], customers[3], 1));
         }
     }
 }
