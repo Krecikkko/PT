@@ -14,7 +14,7 @@ namespace Shop.Logic.Implementation
             _repository = repository;
         }
 
-        public override void SupplyItem(string userId, string stateId, int quantity)
+        public void SupplyItem(string userId, string stateId, int quantity)
         {
             IState state = _repository.GetState(stateId);
             IUser user = _repository.GetUser(userId);
@@ -22,7 +22,7 @@ namespace Shop.Logic.Implementation
             _repository.ChangeQuantity(stateId, quantity);
         }
 
-        public override void SellItem(string userId, string stateId, int quantity)
+        public void SellItem(string userId, string stateId, int quantity)
         {
             if (_repository.GetState(stateId).Quantity < quantity)
             {
@@ -34,7 +34,7 @@ namespace Shop.Logic.Implementation
             _repository.ChangeQuantity(stateId, -quantity);
         }
 
-        public override void ReturnItem(string userId,string stateId, int quantity)
+        public void ReturnItem(string userId,string stateId, int quantity)
         {
             List<IEvent> events = _repository.GetAllEvents().ToList();
             for (int i = 0; i < events.Count; i++)

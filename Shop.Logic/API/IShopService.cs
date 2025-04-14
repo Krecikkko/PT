@@ -2,15 +2,10 @@
 
 namespace Shop.Logic.API
 {
-    public abstract class IShopService
+    public interface IShopService
     {
-        public abstract void SellItem(string userId, string stateId, int quantity);
-        public abstract void SupplyItem(string userId, string stateId, int quantity);
-        public abstract void ReturnItem(string userId, string stateId, int quantity);
-
-        //public static IShopService CreateNewLogic(IDataRepository? repository)
-        //{
-        //    return new ShopService(repository);
-        //}
+        void SellItem(string userId, string stateId, int quantity);
+        void SupplyItem(string userId, string stateId, int quantity);
+        void ReturnItem(string userId, string stateId, int quantity);
     }
 }

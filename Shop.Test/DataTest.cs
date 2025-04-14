@@ -93,7 +93,7 @@ namespace Shop.Test
             dataRepository.AddState(state);
             dataRepository.ChangeQuantity("S001", 5);
 
-            Assert.AreEqual(dataRepository.GetState("C001").Quantity, 55);
+            Assert.AreEqual(dataRepository.GetState("S001").Quantity, 55);
         }
 
 
