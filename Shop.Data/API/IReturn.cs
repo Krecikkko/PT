@@ -1,6 +1,6 @@
 ﻿namespace Shop.Data.API
 {
-    internal interface IDataContext
+    public interface IReturn : IEvent
     {
     }
 }
