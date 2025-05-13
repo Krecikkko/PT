@@ -2,8 +2,8 @@
 {
     public interface IState
     {
-        string ItemId { get; }
-        string StateId { get; set; }
+        int CatalogId { get; }
+        int StateId { get; set; }
         int Quantity { get; set; }
     }
 }
