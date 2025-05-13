@@ -1,16 +1,17 @@
 ﻿using Shop.Data.API;
 
-namespace Shop.Logic.Implementation
+namespace Shop.Service.Implementation
 {
-    internal class Supply : ISupply
+    internal class Return : IReturn
     {
         private IState _state;
         private IUser _user;
-        public string StateId => _state.StateId;
-        public string UserId => _user.Id;
+        public int Id { get; set; }
+        public int StateId => _state.StateId;
+        public int UserId => _user.Id;
         public int QuantityChanged { get; set; }
 
-        public Supply(IState state, IUser user, int quantityChanged)
+        public Return(IState state, IUser user, int quantityChanged)
         {
             _state = state;
             _user = user;
