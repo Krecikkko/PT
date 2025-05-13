@@ -4,16 +4,15 @@ namespace Shop.Data.Implementation
 {
     internal class State : IState
     {
-        private ICatalog _catalog;
-        public string StateId { get; set; }
-        public string ItemId => _catalog.Id; // Getting ItemId we get id of the catalog
+        public int StateId { get; set; }
+        public int CatalogId { get; set; }
         public int Quantity { get; set; }
 
-        public State(string stateId, int quantity, ICatalog catalog)
+        public State(int stateId, int quantity, int catalogId)
         {
             StateId = stateId;
             Quantity = quantity;
-            _catalog = catalog;
+            CatalogId = catalogId;
         }
     }
 }

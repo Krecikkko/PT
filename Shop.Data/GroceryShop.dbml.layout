@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="GroceryShop">
+  <DataContextMoniker Name="/GroceryShopDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d9dd86c6-93af-4dbe-b59a-67875939f0ba" absoluteBounds="3.25, 1.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/GroceryShopDataContext/catalog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fac257fe-1f24-4768-99b9-c88587cd9bbc" absoluteBounds="3.265, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="59560a20-52b1-4d24-b21e-fd33d65c07d5" absoluteBounds="7.125, 1.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/GroceryShopDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23f560c6-b6b9-4fd5-8d2a-9e49a699a8ce" absoluteBounds="7.14, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e02529e-f23b-490e-aa2e-b1d558091075" absoluteBounds="7.75, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/GroceryShopDataContext/event" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1dc50c91-85aa-4df2-ab16-349589cd966c" absoluteBounds="7.765, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="43376f25-0945-4d0f-b386-a8ddb50975b7" absoluteBounds="3.625, 4, 2, 1.3862939453124996">
+      <DataClassMoniker Name="/GroceryShopDataContext/state" />
+      <nestedChildShapes>
+        <elementListCompartment Id="990107c3-0441-44a2-b305-6711687796ab" absoluteBounds="3.64, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.4375 : 2.7612939453125); (4.4375 : 4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GroceryShopDataContext/catalog/catalog_state" />
+      <nodes>
+        <classShapeMoniker Id="d9dd86c6-93af-4dbe-b59a-67875939f0ba" />
+        <classShapeMoniker Id="43376f25-0945-4d0f-b386-a8ddb50975b7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.625 : 4.69314697265625); (7.75 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GroceryShopDataContext/state/state_event" />
+      <nodes>
+        <classShapeMoniker Id="43376f25-0945-4d0f-b386-a8ddb50975b7" />
+        <classShapeMoniker Id="2e02529e-f23b-490e-aa2e-b1d558091075" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.4375 : 3.07859537760417); (8.4375 : 4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GroceryShopDataContext/user/user_event" />
+      <nodes>
+        <classShapeMoniker Id="59560a20-52b1-4d24-b21e-fd33d65c07d5" />
+        <classShapeMoniker Id="2e02529e-f23b-490e-aa2e-b1d558091075" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Class="GroceryShopDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="" Member="catalog">
+    <Type Name="catalog">
+      <Column Member="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="name" Type="System.String" CanBeNull="false" />
+      <Column Member="price" Type="System.Double" CanBeNull="false" />
+      <Association Name="catalog_state" Member="state" ThisKey="id" OtherKey="catalogId" Type="state" />
+    </Type>
+  </Table>
+  <Table Name="" Member="user">
+    <Type Name="user">
+      <Column Member="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="firstName" Type="System.String" CanBeNull="false" />
+      <Column Member="lastName" Type="System.String" CanBeNull="false" />
+      <Column Member="address" Type="System.String" CanBeNull="false" />
+      <Association Name="user_event" Member="event" ThisKey="id" OtherKey="userId" Type="event" />
+    </Type>
+  </Table>
+  <Table Name="" Member="event">
+    <Type Name="event">
+      <Column Member="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="stateId" Type="System.Int32" CanBeNull="false" />
+      <Column Member="userId" Type="System.Int32" CanBeNull="false" />
+      <Column Member="quantityChanged" Type="System.Int32" CanBeNull="false" />
+      <Association Name="state_event" Member="state" ThisKey="stateId" OtherKey="id" Type="state" IsForeignKey="true" />
+      <Association Name="user_event" Member="user" ThisKey="userId" OtherKey="id" Type="user" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="state">
+    <Type Name="state">
+      <Column Member="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="quantity" Type="System.Int32" CanBeNull="false" />
+      <Column Member="catalogId" Type="System.Int32" CanBeNull="false" />
+      <Association Name="state_event" Member="event" ThisKey="id" OtherKey="stateId" Type="event" />
+      <Association Name="catalog_state" Member="catalog" ThisKey="catalogId" OtherKey="id" Type="catalog" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
